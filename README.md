@@ -1,19 +1,97 @@
-# Appex Gym Management System — Django Edition
+# Appex Gym Management System
 
-The exact same product as the Node.js version — same features, same React frontend, same API
-behavior — but with the backend rebuilt in **Django + Django REST Framework** instead of
-Node/Express.
+A full-stack gym management system built with Django REST Framework and React, designed to help gyms manage members, memberships, attendance, payments, employees, and business reports from a single dashboard.
 
-Dashboard, Members, Memberships & Plans (with integrated, guarded payments), Attendance (QR
-check-in), Payments, Reports (deep analytics + Excel/PDF export), automatic QR generation,
-WhatsApp welcome/reminder messages, Employees, and Settings — with Owner and Reception roles.
+The system replaces spreadsheets and paper-based workflows with a modern web application featuring role-based access control, QR code attendance, automated WhatsApp notifications, and detailed business analytics.
 
 ## 1. Requirements
 
 - Python 3.10+
 - Node.js 18+ (for the frontend only)
 
-## 2. Run the backend
+## 2. Features
+
+### Authentication & Authorization
+
+- JWT Authentication
+- Role-based access (Owner / Reception)
+- Secure protected API endpoints
+
+### Dashboard
+
+- Total Members
+- Active Members
+- Expired Memberships
+- Monthly Revenue
+- Today's Renewals
+- Daily Check-ins
+- Revenue & Attendance Charts
+
+### Members
+
+- Add and manage members
+- Member profile with complete history
+- Photo upload
+- Search by name or phone
+
+### Memberships
+
+- Create memberships
+- Renew memberships
+- Freeze memberships
+- Cancel memberships
+- Membership history
+
+### Membership Plans
+
+- Monthly
+- Quarterly
+- Yearly
+- Custom pricing and duration
+
+### Attendance
+
+- QR Code Check-in
+- Barcode support (optional)
+- Search check-in
+
+### Payments
+
+- Cash
+- Visa
+- Instapay
+- Payment history
+
+### Reports
+
+- Revenue Reports
+- Attendance Reports
+- Membership Reports
+- Member Reports
+- Export to Excel
+- Export to PDF
+
+### Employees
+
+- Employee Management
+- Owner permissions
+- Reception permissions
+
+### Smart Automation
+
+- Automatic QR generation
+- WhatsApp welcome messages
+- Membership renewal reminders
+- Expired membership reminders
+
+### Settings
+
+- Gym information
+- Membership settings
+- Reminder configuration
+- WhatsApp integration
+
+## 3. Run the backend
 
 ```bash
 cd backend
@@ -35,7 +113,7 @@ The API runs on **http://localhost:8000**. First-run seed creates:
 The SQLite database is created automatically at `backend/db.sqlite3`. Uploaded member photos are
 stored under `backend/media/`.
 
-## 3. Run the frontend
+## 4. Run the frontend
 
 In a separate terminal:
 
@@ -49,32 +127,9 @@ Open **http://localhost:5173** and log in with one of the seeded accounts above.
 `frontend/.env` points the app at `http://localhost:8000/api` — change `VITE_API_URL` if you run
 the backend elsewhere.
 
-## 4. What's different from the Node version (implementation only — behavior is identical)
+## 5. WhatsApp integration
 
-| | Node version | Django version |
-|---|---|---|
-| Web framework | Express | Django + Django REST Framework |
-| Database access | Node's built-in `node:sqlite` | Django ORM (SQLite by default) |
-| Auth | Hand-rolled JWT (`jsonwebtoken`) | `djangorestframework-simplejwt` |
-| QR generation | `qrcode` (npm) | `qrcode` (PyPI) |
-| PDF export | `pdfkit` | `reportlab` |
-| Scheduled reminders | `node-cron` | `APScheduler`, started in `gym/apps.py` |
-| File uploads | `multer` | Django's built-in `ImageField` + `MEDIA_ROOT` |
-
-The **API contract is intentionally identical** (same routes under `/api/...`, same request/response
-field names), so the React frontend needed zero code changes — only `VITE_API_URL` was repointed
-from port 4000 to port 8000.
-
-## 5. Payments (recap — same rules as the Node version)
-
-Payments are recorded as part of creating/renewing a membership (full, partial/installment, or
-none), and the server rejects any payment that would push the total paid past a membership's
-price — so a member can't be double-charged or overpaid. This is enforced in
-`gym/views/payments.py` and `gym/views/memberships.py`.
-
-## 6. WhatsApp integration
-
-Same Twilio-shaped integration as the Node version — see `gym/services/whatsapp.py`. Out of the
+Same Twilio-shaped integration see `gym/services/whatsapp.py`. Out of the
 box, every WhatsApp trigger (welcome message, renewal reminders, expiry reminders) is logged to
 the database with status `simulated` instead of sending a real message. To go live:
 
@@ -96,7 +151,7 @@ python manage.py run_reminders
 
 (also exposed as a button in the app under **WhatsApp Log**).
 
-## 7. Django admin
+## 6. Django admin
 
 A full Django admin panel is available at **http://localhost:8000/admin/** for direct
 database inspection/editing. Create a superuser to access it:
@@ -107,7 +162,7 @@ python manage.py createsuperuser
 
 (You'll be asked for phone, full name, and password — the custom user model logs in by phone.)
 
-## 8. Project structure
+## 7. Project structure
 
 ```
 backend/
