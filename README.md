@@ -12,6 +12,18 @@ Full-stack gym management system — members, memberships, attendance, payments,
 
 Most small gyms run on spreadsheets and paper sign-in sheets — no history, no automation, no real numbers on renewals or revenue. Appex Gym replaces that with a single web app: role-based logins for owners and reception staff, QR-code check-ins, automated WhatsApp reminders for renewals and expirations, and exportable reports so you can actually see how the business is doing.
 
+## Demo
+
+<img width="1920" height="974" alt="image" src="https://github.com/user-attachments/assets/f9428e66-a5fc-428a-b44e-e54fd8ab1ce4" />
+<img width="1920" height="961" alt="image" src="https://github.com/user-attachments/assets/db3b1db7-e268-4dc0-ab7b-63101529798b" />
+<img width="1920" height="969" alt="image" src="https://github.com/user-attachments/assets/27dec59d-90b7-4173-9cc8-bc46bc67d2a4" />
+<img width="1920" height="967" alt="image" src="https://github.com/user-attachments/assets/a3dcde5d-c459-49d3-8603-4afb4749bd49" />
+<img width="1920" height="976" alt="image" src="https://github.com/user-attachments/assets/08b63268-78e0-4141-9d68-af4c99af8dab" />
+<img width="1920" height="964" alt="image" src="https://github.com/user-attachments/assets/93a57bb3-8210-42d0-86f5-3e884b043ac9" />
+<img width="1919" height="966" alt="image" src="https://github.com/user-attachments/assets/6c8933d8-34a6-4605-b7cd-53f80d464ac4" />
+
+
+
 ## Table of Contents
 
 - [Requirements](#requirements)
